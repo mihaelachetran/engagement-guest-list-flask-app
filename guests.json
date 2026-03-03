@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Family A",
+        "rsvp": "Yes"
+    },
+    {
+        "name": "Family B",
+        "rsvp": "Yes"
+    },
+    {
+        "name": "Family D",
+        "rsvp": "Pending"
+    },
+    {
+        "name": "Family E",
+        "rsvp": "Pending"
+    },
+    {
+        "name": "Family F",
+        "rsvp": "No"
+    },
+    {
+        "name": "Friend 1",
+        "rsvp": "Pending"
+    },
+    {
+        "name": "Friend 2",
+        "rsvp": "Pending"
+    },
+    {
+        "name": "Friend 3",
+        "rsvp": "Yes"
+    },
+    {
+        "name": "Friend 4",
+        "rsvp": "No"
+    },
+    {
+        "name": "Family C",
+        "rsvp": "Yes"
+    }
+]

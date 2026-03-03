@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Engagement Party Guest List</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <script>
+    function toggleList() {
+      const container = document.getElementById("guestContainer");
+      const button = document.querySelector(".toggle-btn");
+
+      if (container.style.display === "none") {
+        container.style.display = "block";
+        button.innerText = "Hide List";
+      } else {
+        container.style.display = "none";
+        button.innerText = "Show List";
+      }
+    }
+  </script>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Welcome to 💖M&M💖 Engagement Party!</h1>
+        <p class="subtitle">We can't wait to celebrate with you!🥳</p>
+
+        <form method="POST" class="add-form">
+            <input type="text" name="guest_name" placeholder="Enter guest name">
+            <button type="submit" name="action" value="add" class="primary-btn">Add Guest</button>        
+        </form>
+
+        <button type="button" class="toggle-btn primary-btn" onclick="toggleList()">Show List</button>
+
+        <h2>
+            Guest List 
+            <span>(Total: {{ total }})</span> - 
+            <span>Confirmed: {{ confirmed }}</span>
+        </h2>
+
+        <div id="guestContainer" class="guest-container" style="display:none;">
+            {% if guests %}
+                <ul class="guest-list">
+                    {% for guest in guests %}
+                        <li class="guest-item">
+                            <div class="guest-left">
+                                <strong class="guest-name">{{ guest.name }}</strong>
+                            </div>
+
+                            <div class="guest-actions">
+                                <!-- RSVP FORM -->
+                                <form method="POST" class="inline-form">
+                                    <input type="hidden" name="guest_name" value="{{ guest.name }}">
+                                    <select name="rsvp_value"
+                                            class="rsvp-select
+                                            {% if guest.rsvp == 'Yes' %}rsvp-yes
+                                            {% elif guest.rsvp == 'No' %}rsvp-no
+                                            {% else %}rsvp-pending
+                                            {% endif %}"> 
+                                        <option value="Pending" {% if guest.rsvp == 'Pending' %}selected{% endif %}>Pending</option>
+                                        <option value="Yes" {% if guest.rsvp == 'Yes' %}selected{% endif %}>Yes</option>
+                                        <option value="No" {% if guest.rsvp == 'No' %}selected{% endif %}>No</option> 
+                                    </select>
+                                    <button type="submit" name="action" value="rsvp" class="update-btn">Update</button>
+                                </form>
+                                <!-- REMOVE FORM -->
+                                <form method="POST" class="inline-form">
+                                    <input type="hidden" name="guest_name" value="{{ guest.name }}">
+                                    <button type="submit" name="action" value="remove" class="heart-btn" title="Remove guest">
+                                      💔
+                                    </button>
+                                </form>
+                            </div>
+                        </li>
+                    {% endfor %}
+                 </ul>
+                {% else %}
+                    <p class="message">No guests yet. Add your first guest above😊</p>
+                {% endif %}
+            </div>
+
+            {% if message %} 
+                <p class="message">{{ message }}</p>
+            {% endif %}
+
+        </div>
+</body>
+</html>

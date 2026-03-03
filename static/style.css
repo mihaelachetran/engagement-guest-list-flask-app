@@ -1,0 +1,262 @@
+
+/* ===== Base page ===== */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  font-family: "Segoe UI", Arial, sans-serif;
+
+   background: linear-gradient(135deg, #3b145f, #b8860b);
+}
+
+/* ===== Card ===== */
+
+.container {
+  width: 100%;
+  max-width: 760px;
+  padding: 34px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(6px);
+}
+
+/* ===== Titles (black) ===== */
+
+h1 {
+  text-align: center;
+  margin: 0 0 10px 0;
+  letter-spacing: 0.2px;
+  color: #000;
+}
+
+.subtitle {
+  text-align: center;
+  margin: 0 0 22px 0;
+  color: #000;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* ===== Guest list heading ===== */
+
+h2 {
+  text-align: center;
+  margin: 18px 0 14px 0;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: #000;
+}
+
+h2 span {
+  color: #000;
+  font-weight: 600;
+}
+
+/* ===== Add form alignment ===== */
+
+.add-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 10px 0 10px 0;
+}
+
+.add-form input[type="text"] {
+  flex: 1;
+  height: 44px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.12);
+  transition: 0.2s ease;
+}
+
+.add-form input[type="text"]:focus {
+  outline: none;
+  border-color: #6a1b9a;
+  box-shadow: 0 0 0 4px rgba(106, 27, 154, 0.12);
+}
+
+/* ===== Buttons base ===== */
+
+button {
+  border: none;
+  border-radius: 22px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+}
+
+
+.primary-btn {
+  height: 44px;
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #6a1b9a, #8e24aa);
+}
+
+.primary-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(106, 27, 154, 0.35);
+  opacity: 0.98;
+}
+
+/* ===== Toggle spacing ===== */
+
+.toggle-btn {
+  margin-top: 6px;
+}
+
+/* ===== Update button ===== */
+
+.update-btn {
+  height: 44px;
+  padding: 0 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #4a148c, #6a1b9a);
+}
+
+.update-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(184, 134, 11, 0.35);
+  opacity: 0.98;
+}
+
+/* ===== Guest list container ===== */
+
+.guest-container {
+  margin-top: 14px;
+  max-height: 280px;
+  overflow-y: auto;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+/* ===== Guest list ===== */
+
+.guest-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.guest-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 12px;
+  margin-bottom: 10px;
+  border-radius: 14px;
+
+  background: linear-gradient(135deg, rgba(243, 229, 245, 0.95), rgba(255, 248, 225, 0.95));
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.guest-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.10);
+}
+
+.guest-name {
+  font-size: 16px;
+  color: #000;
+}
+
+/* ===== Actions ===== */
+
+.guest-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: nowrap;
+}
+
+.inline-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  flex-wrap: nowrap;
+}
+
+/* ===== RSVP dropdown =====  */
+
+.rsvp-select {
+  height: 44px;
+  min-width: 130px;
+  padding: 0 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(0,0,0,0.10);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.rsvp-yes {
+  background: linear-gradient(135deg, #b8860b, #d4af37);
+  color: #1c1305;
+  box-shadow: 0 6px 16px rgba(184, 134, 11, 0.28);
+}
+
+.rsvp-no {
+  background: linear-gradient(135deg, #4a148c, #6a1b9a);
+  color: white;
+  box-shadow: 0 6px 16px rgba(74, 20, 140, 0.30);
+}
+
+.rsvp-pending {
+  background: linear-gradient(135deg, #b39ddb, #d1c4e9);
+  color: #2c1a47;
+  box-shadow: 0 6px 16px rgba(179, 157, 219, 0.25);
+}
+
+/* ===== Heart delete button ===== */
+
+.heart-btn {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  border-radius: 22px;
+  color: #6a1b9a;
+  font-size: 22px;
+}
+
+.heart-btn:hover {
+  color: #b8860b;
+  transform: scale(1.12);
+}
+
+/* ===== Messages ===== */
+
+.message {
+  color: black;        
+  font-weight: 600;
+  margin-top: 18px;
+  text-align: center;
+}
+
+/* ===== Mobile ===== */
+
+@media (max-width: 560px) {
+  .add-form { flex-direction: column; }
+  .primary-btn, .update-btn { width: 100%; }
+  .guest-item { flex-direction: column; align-items: flex-start; }
+  .guest-actions { width: 100%; justify-content: space-between; }
+}
